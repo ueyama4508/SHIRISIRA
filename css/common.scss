@@ -1,0 +1,438 @@
+@charset "UTF-8";
+/* CSS Document */
+
+$white: #FFFFFF;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@700&display=swap');
+
+$breakpoints: (
+'sp': (max-width: 480px),
+'tab': (max-width: 780px),
+'note': (max-width: 1024px),
+'pc': (min-width: 1025px)
+) !default;
+@mixin media($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+        @media screen and #{inspect(map-get($breakpoints, $breakpoint))} {
+            @content;
+        }
+    }
+}
+
+@mixin wrap{
+    max-width: calc(1000px + 2rem);
+    margin: auto;
+    padding: 0 1rem;
+}
+
+@mixin section_format{
+    width: 1000px;
+    text-align: center;
+    margin: auto;
+    h3{
+        display: inline-block;
+        font-size: 50px;
+        margin-top: 100px;
+    }
+
+    h4{
+        margin-top: 50px;
+        font-size: 23px;
+    }
+}
+
+.is_pc,
+.is_tab,
+.is_onlytab,
+.is_sp{
+    display: none;
+}
+@include media(sp){
+    .is_sp{
+        display: block;
+    }
+}
+@include media(tab){
+    .is_tab{
+        display: block;
+    }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px){
+    .is_onlytab{
+        display: block;
+    }
+}
+@include media(pc){
+    .is_pc{
+        display: block;
+    }
+}
+@mixin serif{
+    font-family: 'Noto Serif JP', serif;
+}
+
+// *{
+//     border: 1px solid red;
+// }
+
+html{
+    font-size: 16px;
+    scroll-behavior: smooth;
+
+    @include media(sp){
+        font-size: 14px;
+    }
+    body{
+        width: 100%;
+        min-width: 1280px;
+        line-height: 1.7;
+        @include serif;
+
+        a{
+            text-decoration: none;
+            color: #000000;
+        }
+        img{
+            max-width: 100%;
+            height: auto;
+        }
+    }
+}
+
+header{
+    z-index: 999;
+    background: transparent;
+    transition: background 0.3s;
+    position: fixed;
+    width: 100%;
+    @include media(tab){
+        background-color: transparent !important;
+    }
+
+    .inner{
+        display: flex;
+
+        h1{
+            .logo{
+                display: none;
+            }
+        }
+        .navigation{
+            margin-left: auto;
+
+            &.is_pc{
+                ul{
+                    display: flex;
+                    gap: 30px;
+                    padding: 50px;
+
+                    li{
+                        &:nth-child(even){
+                            border-left: 1px solid $white;
+                        }
+                        a{
+                            color: $white;
+                            font-weight: 700;
+                        }
+                    }
+                }
+            }
+            &.is_tab{
+                #menuToggle{
+                    display: block;
+                    position: relative;
+                    right: 24px;
+                    top: 28px;
+                    z-index: 1;
+                    -webkit-user-select: none;
+                    user-select: none;
+
+                    input{
+                        display: block;
+                        width: 100%;
+                        height: 100%;
+                        position: absolute;
+                        cursor: pointer;
+                        opacity: 0;
+                        z-index: 2;
+                        -webkit-touch-callout: none;
+                    }
+                    span{
+                        display: block;
+                        width: 50px;
+                        height: 2px;
+                        margin-bottom: 12px;
+                        position: relative;
+                        background: #cdcdcd;
+                        z-index: 2;
+                        transform-origin: 4px 0px;
+                        transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                        background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                        opacity 0.55s ease;
+
+                        &:first-child{
+                            transform-origin: 0% 0%;
+                        }
+                        &:nth-last-child(2){
+                            transform-origin: 0% 100%;
+                        }
+                    }
+                    input:checked ~ span{
+                        opacity: 1;
+                        transform: rotate(45deg) translate(-2px, -4px);
+                    }
+                    input:checked ~ span:nth-last-child(3){
+                        opacity: 0;
+                        transform: rotate(0deg) scale(0.2, 0.2);
+                    }
+                    input:checked ~ span:nth-last-child(2){
+                        transform: rotate(-45deg) translate(0, 2px);
+                    }
+                    input:checked ~ ul{
+                        transform: none;
+                    }
+                }
+                #menu{
+                    height: 100%;
+                    position: fixed;
+                    left: 0;
+                    top: 0;
+                    margin: 0;
+                    width: 100%;
+                    z-index: 1;
+                    padding: 1rem;
+                    padding-top: 80px;
+                    // background: $blue;
+                    list-style-type: none;
+                    -webkit-font-smoothing: antialiased;
+                    transform-origin: 0% 0%;
+                    transform: translate(300%, 0);
+                    transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0);
+                    display: flex;
+                    flex-direction: column;
+                    gap: 1rem;
+
+                    li{
+                        &:nth-child(even){
+                            border-bottom: 1px solid $white;
+                        }
+                        a{
+                            font-size: 16px;
+                            text-align: left;
+                            font-weight: 700;
+                            color: $white;
+                        }
+                    }
+                }
+            }
+        } 
+    }
+}
+
+#main_visual{
+    background-image: url(../画像一次補完/SHRISILAメンイバナー.png);
+    background-size: cover;
+    height: 100vh;
+    background-position: center center;
+    background-repeat: no-repeat;
+    // background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+    .warp{
+        position: relative;
+        img{
+
+        }
+        h2{
+            position: absolute;
+            width: 400px;
+            height: 100px;
+            top: 350px;
+            left: 255px;
+        }
+    }
+}
+
+#concept{
+    @include section_format;
+    .warp{
+        p{
+            line-height: 60px;
+            margin-top: 30px;
+        }
+        img{
+            margin-top: 60px;
+        }
+    }
+
+}
+
+#conponent{
+    @include section_format;
+    .warp{
+        p{
+            line-height: 42px;
+            padding-top: 60px
+        }
+    }
+}
+
+#cannabidiol{
+    @include section_format;
+    text-align: left;
+    .inner{
+        .warp{
+            .cannabidiol_oil{
+                margin-top: 110px;
+                span{
+                    font-size: 14px;
+                }
+                h4{
+                    font-size: 40px;
+                    margin-top: 0;
+                }
+                ul{
+                    background-color: #f7f7f7;
+                    list-style: disc;
+                    padding: 15px
+                }
+            }
+        }
+    }
+}
+
+
+#howtouse{
+    @include section_format;
+    width: calc(100% - 100px);
+    border-radius: 30px;
+    background-color: #e3e3e3;
+    margin: 170px auto 50px auto;
+    padding-bottom: 50px;
+    .warp{
+        margin: auto;
+        width: 1300px;
+        h3{
+            background-color: #e3e3e3;;
+        }
+
+    .inner{
+        width: 1300px;
+        display: flex;
+        justify-content: space-between;
+        background-color: white;
+        border-radius: 20px;
+        margin: 60px  auto;
+        padding: 0 50px 50px 50px;
+        .howtouseimg{
+            width: 270px;
+            padding-top: 80px;
+            gap: 90px;
+            h4{
+                margin-top: 20px;
+            }
+            p{
+                margin-top: 10px
+            }
+        }
+    }
+}
+}
+
+#qa{
+    @include  section_format;
+    .warp{
+        h3{
+            background-color: white;
+        }
+        ul{
+            margin: auto;
+            margin-top: 50px;
+            text-align: left;
+            li{
+                line-height: 3rem;
+                width: 650px;
+                border-bottom: 2px dotted black;
+                margin: auto
+            }
+        }
+    }
+}
+
+#voice{
+    @include  section_format;
+    .warp{
+        h3{
+            background-color: white;
+            margin-bottom: 70px;
+        }
+        .uservoice{
+            text-align: left;
+            display: flex;
+            background-color: #f7f7f7;
+            width: 760px;
+            padding: 20px;
+            margin: 40px auto;
+            border-radius: 15px;
+            img{
+                width: 60px;
+                height: 60px;
+                margin-right: 20px;
+            }
+            div{
+            h4{
+                margin-top: 0;
+            }
+            p{
+                margin-top: 10px
+            }
+        }
+        }
+    }
+}
+
+#product{
+    @include  section_format;
+    width: 100%;
+    background-color: #f7f7f7;
+    .warp{
+        h3{
+            background-color: #f7f7f7;
+        }
+
+
+    .inner{
+        text-align: left;
+        width: 1000px;
+        margin: auto;
+        background-color: white;
+        display: flex;
+        justify-content: space-around;
+        margin-top: 100px;
+    
+    img{
+        width: 380px;
+        height: 380px;
+        object-fit: cover;
+        margin: 50px 65px;
+    }
+    .explanation{
+        p{
+            margin-top: 20px;
+        }
+        .component{
+            font-size: 9px;
+            span{
+                margin: 0 5px;
+                background-color: #d7d7d7;
+                padding: 3px;
+            }
+        }
+    }
+}
+}
+}
+
+footer{
+    
+}

@@ -1,0 +1,420 @@
+@charset "UTF-8";
+/* CSS Document */
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&family=Noto+Serif+JP:wght@700&display=swap");
+.is_pc,
+.is_tab,
+.is_onlytab,
+.is_sp {
+  display: none;
+}
+
+@media screen and (max-width: 480px) {
+  .is_sp {
+    display: block;
+  }
+}
+@media screen and (max-width: 780px) {
+  .is_tab {
+    display: block;
+  }
+}
+@media screen and (min-width: 481px) and (max-width: 1024px) {
+  .is_onlytab {
+    display: block;
+  }
+}
+@media screen and (min-width: 1025px) {
+  .is_pc {
+    display: block;
+  }
+}
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+}
+html body {
+  width: 100%;
+  min-width: 1280px;
+  line-height: 1.7;
+  font-family: "Noto Serif JP", serif;
+}
+html body a {
+  text-decoration: none;
+  color: #000000;
+}
+html body img {
+  max-width: 100%;
+  height: auto;
+}
+
+header {
+  z-index: 999;
+  background: transparent;
+  transition: background 0.3s;
+  position: fixed;
+  width: 100%;
+}
+@media screen and (max-width: 780px) {
+  header {
+    background-color: transparent !important;
+  }
+}
+header .inner {
+  display: flex;
+}
+header .inner h1 .logo {
+  display: none;
+}
+header .inner .navigation {
+  margin-left: auto;
+}
+header .inner .navigation.is_pc ul {
+  display: flex;
+  gap: 30px;
+  padding: 50px;
+}
+header .inner .navigation.is_pc ul li:nth-child(even) {
+  border-left: 1px solid #FFFFFF;
+}
+header .inner .navigation.is_pc ul li a {
+  color: #FFFFFF;
+  font-weight: 700;
+}
+header .inner .navigation.is_tab #menuToggle {
+  display: block;
+  position: relative;
+  right: 24px;
+  top: 28px;
+  z-index: 1;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+       user-select: none;
+}
+header .inner .navigation.is_tab #menuToggle input {
+  display: block;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  z-index: 2;
+  -webkit-touch-callout: none;
+}
+header .inner .navigation.is_tab #menuToggle span {
+  display: block;
+  width: 50px;
+  height: 2px;
+  margin-bottom: 12px;
+  position: relative;
+  background: #cdcdcd;
+  z-index: 2;
+  transform-origin: 4px 0px;
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+}
+header .inner .navigation.is_tab #menuToggle span:first-child {
+  transform-origin: 0% 0%;
+}
+header .inner .navigation.is_tab #menuToggle span:nth-last-child(2) {
+  transform-origin: 0% 100%;
+}
+header .inner .navigation.is_tab #menuToggle input:checked ~ span {
+  opacity: 1;
+  transform: rotate(45deg) translate(-2px, -4px);
+}
+header .inner .navigation.is_tab #menuToggle input:checked ~ span:nth-last-child(3) {
+  opacity: 0;
+  transform: rotate(0deg) scale(0.2, 0.2);
+}
+header .inner .navigation.is_tab #menuToggle input:checked ~ span:nth-last-child(2) {
+  transform: rotate(-45deg) translate(0, 2px);
+}
+header .inner .navigation.is_tab #menuToggle input:checked ~ ul {
+  transform: none;
+}
+header .inner .navigation.is_tab #menu {
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  margin: 0;
+  width: 100%;
+  z-index: 1;
+  padding: 1rem;
+  padding-top: 80px;
+  list-style-type: none;
+  -webkit-font-smoothing: antialiased;
+  transform-origin: 0% 0%;
+  transform: translate(300%, 0);
+  transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+header .inner .navigation.is_tab #menu li:nth-child(even) {
+  border-bottom: 1px solid #FFFFFF;
+}
+header .inner .navigation.is_tab #menu li a {
+  font-size: 16px;
+  text-align: left;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+
+#main_visual {
+  background-image: url(../画像一次補完/SHRISILAメンイバナー.png);
+  background-size: cover;
+  height: 100vh;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #464646;
+}
+#main_visual .warp {
+  position: relative;
+}
+#main_visual .warp h2 {
+  position: absolute;
+  width: 400px;
+  height: 100px;
+  top: 350px;
+  left: 255px;
+}
+
+#concept {
+  width: 1000px;
+  text-align: center;
+  margin: auto;
+}
+#concept h3 {
+  display: inline-block;
+  font-size: 50px;
+  margin-top: 100px;
+}
+#concept h4 {
+  margin-top: 50px;
+  font-size: 23px;
+}
+#concept .warp p {
+  line-height: 60px;
+  margin-top: 30px;
+}
+#concept .warp img {
+  margin-top: 60px;
+}
+
+#conponent {
+  width: 1000px;
+  text-align: center;
+  margin: auto;
+}
+#conponent h3 {
+  display: inline-block;
+  font-size: 50px;
+  margin-top: 100px;
+}
+#conponent h4 {
+  margin-top: 50px;
+  font-size: 23px;
+}
+#conponent .warp p {
+  line-height: 42px;
+  padding-top: 60px;
+}
+
+#cannabidiol {
+  width: 1000px;
+  text-align: center;
+  margin: auto;
+  text-align: left;
+}
+#cannabidiol h3 {
+  display: inline-block;
+  font-size: 50px;
+  margin-top: 100px;
+}
+#cannabidiol h4 {
+  margin-top: 50px;
+  font-size: 23px;
+}
+#cannabidiol .inner .warp .cannabidiol_oil {
+  margin-top: 110px;
+}
+#cannabidiol .inner .warp .cannabidiol_oil span {
+  font-size: 14px;
+}
+#cannabidiol .inner .warp .cannabidiol_oil h4 {
+  font-size: 40px;
+  margin-top: 0;
+}
+#cannabidiol .inner .warp .cannabidiol_oil ul {
+  background-color: #f7f7f7;
+  list-style: disc;
+  padding: 15px;
+}
+
+#howtouse {
+  width: 1000px;
+  text-align: center;
+  margin: auto;
+  width: calc(100% - 100px);
+  border-radius: 30px;
+  background-color: #e3e3e3;
+  margin: 170px auto 50px auto;
+  padding-bottom: 50px;
+}
+#howtouse h3 {
+  display: inline-block;
+  font-size: 50px;
+  margin-top: 100px;
+}
+#howtouse h4 {
+  margin-top: 50px;
+  font-size: 23px;
+}
+#howtouse .warp {
+  margin: auto;
+  width: 1300px;
+}
+#howtouse .warp h3 {
+  background-color: #e3e3e3;
+}
+#howtouse .warp .inner {
+  width: 1300px;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  border-radius: 20px;
+  margin: 60px auto;
+  padding: 0 50px 50px 50px;
+}
+#howtouse .warp .inner .howtouseimg {
+  width: 270px;
+  padding-top: 80px;
+  gap: 90px;
+}
+#howtouse .warp .inner .howtouseimg h4 {
+  margin-top: 20px;
+}
+#howtouse .warp .inner .howtouseimg p {
+  margin-top: 10px;
+}
+
+#qa {
+  width: 1000px;
+  text-align: center;
+  margin: auto;
+}
+#qa h3 {
+  display: inline-block;
+  font-size: 50px;
+  margin-top: 100px;
+}
+#qa h4 {
+  margin-top: 50px;
+  font-size: 23px;
+}
+#qa .warp h3 {
+  background-color: white;
+}
+#qa .warp ul {
+  margin: auto;
+  margin-top: 50px;
+  text-align: left;
+}
+#qa .warp ul li {
+  line-height: 3rem;
+  width: 650px;
+  border-bottom: 2px dotted black;
+  margin: auto;
+}
+
+#voice {
+  width: 1000px;
+  text-align: center;
+  margin: auto;
+}
+#voice h3 {
+  display: inline-block;
+  font-size: 50px;
+  margin-top: 100px;
+}
+#voice h4 {
+  margin-top: 50px;
+  font-size: 23px;
+}
+#voice .warp h3 {
+  background-color: white;
+  margin-bottom: 70px;
+}
+#voice .warp .uservoice {
+  text-align: left;
+  display: flex;
+  background-color: #f7f7f7;
+  width: 760px;
+  padding: 20px;
+  margin: 40px auto;
+  border-radius: 15px;
+}
+#voice .warp .uservoice img {
+  width: 60px;
+  height: 60px;
+  margin-right: 20px;
+}
+#voice .warp .uservoice div h4 {
+  margin-top: 0;
+}
+#voice .warp .uservoice div p {
+  margin-top: 10px;
+}
+
+#product {
+  width: 1000px;
+  text-align: center;
+  margin: auto;
+  width: 100%;
+  background-color: #f7f7f7;
+}
+#product h3 {
+  display: inline-block;
+  font-size: 50px;
+  margin-top: 100px;
+}
+#product h4 {
+  margin-top: 50px;
+  font-size: 23px;
+}
+#product .warp h3 {
+  background-color: #f7f7f7;
+}
+#product .warp .inner {
+  text-align: left;
+  width: 1000px;
+  margin: auto;
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 100px;
+}
+#product .warp .inner img {
+  width: 380px;
+  height: 380px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin: 50px 65px;
+}
+#product .warp .inner .explanation p {
+  margin-top: 20px;
+}
+#product .warp .inner .explanation .component {
+  font-size: 9px;
+}
+#product .warp .inner .explanation .component span {
+  margin: 0 5px;
+  background-color: #d7d7d7;
+  padding: 3px;
+}/*# sourceMappingURL=common.css.map */
