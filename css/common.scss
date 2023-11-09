@@ -26,7 +26,8 @@ $breakpoints: (
 }
 
 @mixin section_format{
-    width: 1000px;
+    width: 100%;
+    max-width: 1000px;
     text-align: center;
     margin: auto;
     h3{
@@ -76,15 +77,14 @@ $breakpoints: (
 // }
 
 html{
+    background-color: #f5f5f5;
     font-size: 16px;
     scroll-behavior: smooth;
-
     @include media(sp){
         font-size: 14px;
     }
-    body{
-        width: 100%;
-        min-width: 1280px;
+
+        max-width: 100%;
         line-height: 1.7;
         @include serif;
 
@@ -96,8 +96,15 @@ html{
             max-width: 100%;
             height: auto;
         }
+        h4, p {
+            color: #48474c;
+            letter-spacing: -0.5px;
+        }
     }
-}
+
+    // body{
+    //     width: 100%;
+    // }
 
 header{
     z-index: 999;
@@ -229,7 +236,25 @@ header{
     }
 }
 
+main{
+
+    max-width: 100vw;
+}
+
 #main_visual{
+    @include media(tab){
+        max-width: 100vw;
+        .warp{
+            img{
+                max-width: 100vw;
+            }
+            h2{
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+    }
+}
     background-image: url(../画像一次補完/SHRISILAメンイバナー.png);
     background-size: cover;
     height: 100vh;
@@ -239,16 +264,21 @@ header{
     background-size: cover;
     background-color: #464646;
     .warp{
-        position: relative;
-        img{
-
-        }
+        // position: relative;
         h2{
+            @include media(tab){
+                width: 320px;
+                height: 80px;
+                        top: 84%;
+                        left: 50%;
+                        transform: translate(-50%, -50%);
+                    }
             position: absolute;
             width: 400px;
             height: 100px;
-            top: 350px;
-            left: 255px;
+            top: 43%;
+            left: 25%;
+            transform: translate(-50%, -50%);
         }
     }
 }
@@ -256,7 +286,28 @@ header{
 #concept{
     @include section_format;
     .warp{
+        @include media(tab){
+            width: 90%
+        }
+        h3{
+            img{
+                @include media(tab){
+                    width: 300px;
+                        }
+                width: 350px;
+                height: auto;
+            }
+        }
+        h4{
+            
+        }
+        
         p{
+            @include media(tab){
+                margin-top: 10px;
+                font-size: 12px;
+                line-height: 48px;
+                    }
             line-height: 60px;
             margin-top: 30px;
         }
@@ -270,10 +321,30 @@ header{
 #conponent{
     @include section_format;
     .warp{
-        p{
-            line-height: 42px;
-            padding-top: 60px
+        h3{
+            @include media(tab){
+                width: 360px;
+            }
+
+            img{
+                width: 400px;
+                height: auto;
+            }
         }
+        p{
+
+            line-height: 42px;
+            padding-top: 60px;
+
+            span{
+                @include media(tab){
+                    padding-bottom: 20px;
+                }
+                padding-bottom: 30px;
+                border-bottom: 1px black solid;
+            }
+        }
+        
     }
 }
 
@@ -281,20 +352,36 @@ header{
     @include section_format;
     text-align: left;
     .inner{
+        margin: 0 20px;
         .warp{
             .cannabidiol_oil{
                 margin-top: 110px;
-                span{
-                    font-size: 14px;
+                .oillogo{
+                    display: flex;
+                    img{
+                        width: 30px;
+                        margin-right: 20px
+                    }
+                    span{
+                        font-size: 14px;
+                        line-height: 14px;
+                        margin: 0;
+                        padding: 0;
+                    }
+                    h4{
+                        font-size: 30px;
+                        margin-top: 0;
+                        line-height: 40px;
+                    }
                 }
-                h4{
-                    font-size: 40px;
-                    margin-top: 0;
+                p{
+                    padding-top: 10px;
                 }
                 ul{
                     background-color: #f7f7f7;
                     list-style: disc;
-                    padding: 15px
+                    padding: 15px;
+                    margin-top: 20px
                 }
             }
         }
@@ -304,20 +391,51 @@ header{
 
 #howtouse{
     @include section_format;
-    width: calc(100% - 100px);
-    border-radius: 30px;
-    background-color: #e3e3e3;
-    margin: 170px auto 50px auto;
-    padding-bottom: 50px;
+    width: 100%;
+    max-width: 1300px;
+    margin-top: 100px;
+    @include media(tab){
+        width: calc(100% - 20px);
+        margin: 70px auto 50px auto;
+    }
+
+
     .warp{
-        margin: auto;
-        width: 1300px;
+        @include media(tab){
+            margin: 10px auto 0px auto;
+            padding:0 0 5px 0;
+        }
+        width:90%;
+        border-radius: 30px;
+        background-color: #e3e3e3;
+        margin: 170px auto 50px auto;
+        padding-bottom: 50px;
+
         h3{
+            @include media(tab){
+                width: 320px;
+                margin-top: 0px;
+            }
+            width: 440px;
+            height: auto;
             background-color: #e3e3e3;;
+        }
+        h4{
+            @include media(tab){
+                font-size: 17px;
+            }
         }
 
     .inner{
-        width: 1300px;
+        @include media(tab){
+                display: block;
+                    width: 90%;
+                    display: block;
+                    padding: 10px;
+                    margin-bottom: 30px;
+                }
+        width: 90%;
+        // max-width: 1300px;
         display: flex;
         justify-content: space-between;
         background-color: white;
@@ -325,9 +443,19 @@ header{
         margin: 60px  auto;
         padding: 0 50px 50px 50px;
         .howtouseimg{
-            width: 270px;
+            @include media(tab){
+                width: 100%;
+                img{
+                    width: 100%;
+                }
+                }
+                text-align: left;
+            width: calc(85% / 3 );
+            // max-width: 270px;
             padding-top: 80px;
-            gap: 90px;
+            img{
+                width: 100%;
+            }
             h4{
                 margin-top: 20px;
             }
@@ -342,18 +470,52 @@ header{
 #qa{
     @include  section_format;
     .warp{
+        @include media(tab){}
+        width: 90%;
+        margin: auto;
         h3{
-            background-color: white;
+            width: 170px;
+            height: auto;
+            background-color:#f5f5f5;
         }
         ul{
+            list-style-position: inside;
             margin: auto;
             margin-top: 50px;
             text-align: left;
+        
             li{
+                position: relative;
+                display: flex;
+                align-items: center;
+                gap: 10px;
                 line-height: 3rem;
-                width: 650px;
+                width: 100%;
+                max-width: 650px;
                 border-bottom: 2px dotted black;
-                margin: auto
+                margin: auto;
+                &::before{
+                    display: inline-block;
+                    background-image: url(../画像一次補完/qaicon.png);
+                    background-size: 20px 20px;
+                    content: "";
+                    width: 20px;
+                    height: 20px;
+                    // margin-right: 10px;
+                    
+                }
+                &::after{
+                    display: inline-block;
+                    content: "▼";
+                    position: absolute;
+                    top: 25%;
+                    right: 0%;
+                    transform: translateX(-50%);
+                    transform: translateY(-50%);
+                    width: 20px;
+                    height: 20px;
+                }
+
             }
         }
     }
@@ -363,14 +525,21 @@ header{
     @include  section_format;
     .warp{
         h3{
-            background-color: white;
+            @include media(tab){
+                margin-bottom: 10px;
+                margin-top: 0;
+                width: 180px;
+            }
+            width: 230px;
+            height: auto;
+            background-color: #f5f5f5;
             margin-bottom: 70px;
         }
         .uservoice{
             text-align: left;
             display: flex;
             background-color: #f7f7f7;
-            width: 760px;
+            max-width: 760px;
             padding: 20px;
             margin: 40px auto;
             border-radius: 15px;
@@ -384,6 +553,10 @@ header{
                 margin-top: 0;
             }
             p{
+                @include media(tab){
+                    line-height: 30px;
+                }
+
                 margin-top: 10px
             }
         }
@@ -397,42 +570,91 @@ header{
     background-color: #f7f7f7;
     .warp{
         h3{
-            background-color: #f7f7f7;
+            @include media(tab){
+                width: 300px;
+                margin-top: 0;
+            }
+
+            width: 350px;
+            height: auto;
+            // background-color: #f7f7f7;
         }
 
 
     .inner{
+        @include media(tab){
+            // display: block;
+            // background-color: aqua;
+
+        }
         text-align: left;
-        width: 1000px;
+        width: 100%;
+        max-width: 1000px;
         margin: auto;
         background-color: white;
         display: flex;
         justify-content: space-around;
         margin-top: 100px;
-    
+
+
     img{
-        width: 380px;
+        @include media(tab){
+            // display: block;
+            // background-color: aqua;
+            margin: 10px;
+            height: 270px;
+            width: 120px;
+
+        }
+        width: 40%;
+        max-width: 380px;
         height: 380px;
         object-fit: cover;
         margin: 50px 65px;
     }
     .explanation{
+        h4{
+            @include media(tab){
+                margin-top: 0;
+
+    
+            }
+        }
         p{
+            @include media(tab){
+                font-size: 12px;
+
+    
+            }
             margin-top: 20px;
         }
         .component{
+            @include media(tab){
+
+                display: flex;
+                flex-wrap: wrap;
+
+    
+            }
             font-size: 9px;
             span{
-                margin: 0 5px;
+                display: inline-block;
+                margin: 5px 5px;
                 background-color: #d7d7d7;
-                padding: 3px;
+                padding: 1px;
             }
         }
     }
-}
+    }
 }
 }
 
-footer{
-    
+#blog{
+    @include  section_format;
+    .warp{
+        h3{
+            width: 200px;
+            height: auto;
+        }
+    }
 }
