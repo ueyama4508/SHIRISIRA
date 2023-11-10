@@ -351,6 +351,7 @@ main{
 #cannabidiol{
     @include section_format;
     text-align: left;
+    line-height: 30px;
     .inner{
         margin: 0 20px;
         .warp{
@@ -359,27 +360,41 @@ main{
                 .oillogo{
                     display: flex;
                     img{
-                        width: 30px;
-                        margin-right: 20px
+                        @include media(tab){
+                            margin: 0 10px 10px 10px;
+                        }
+                        width: 35px;
+                        margin: 0 10px 30px 20px;
+                        
                     }
-                    span{
-                        font-size: 14px;
-                        line-height: 14px;
-                        margin: 0;
-                        padding: 0;
-                    }
-                    h4{
-                        font-size: 30px;
-                        margin-top: 0;
-                        line-height: 40px;
+                    // span{
+                    //     font-size: 14px;
+                    //     line-height: 14px;
+                    //     margin: 0;
+                    //     padding: 0;
+                    // }
+                    // h4{
+                    //     font-size: 30px;
+                    //     margin-top: 0;
+                    //     line-height: 40px;
+                    // }
+                    div{
+                        img{
+                            @include media(tab){
+                                height: 40px;
+                            }
+                            width: auto;
+                            height: 63px;
+                        }
                     }
                 }
                 p{
                     padding-top: 10px;
                 }
                 ul{
-                    background-color: #f7f7f7;
-                    list-style: disc;
+                    font-weight: bold;
+                    background-color: #e5e5e5;
+                    list-style: none;
                     padding: 15px;
                     margin-top: 20px
                 }
@@ -492,8 +507,17 @@ main{
                 line-height: 3rem;
                 width: 100%;
                 max-width: 650px;
-                border-bottom: 2px dotted black;
+                border-top: 2px dotted black;
                 margin: auto;
+                cursor: pointer;
+
+                &:first-child{
+                    border-top: none;
+                }
+                &:last-child{
+                    border-bottom: 2px dotted black;
+                }
+
                 &::before{
                     display: inline-block;
                     background-image: url(../画像一次補完/qaicon.png);
@@ -515,7 +539,24 @@ main{
                     width: 20px;
                     height: 20px;
                 }
-
+            }
+            p{
+                width: 650px;
+                margin: auto;
+                margin: 20px auto 40px auto;
+                // &::before{
+                //     display: inline-block;
+                //     background-image: url(../画像一次補完/qaicon.png);
+                //     background-size: 20px 20px;
+                //     content: "";
+                //     width: 20px;
+                //     height: 20px;
+                //     // margin-right: 10px;
+                    
+                // }
+                &:last-child{
+                    border-bottom: 2px dotted black;
+                }
             }
         }
     }

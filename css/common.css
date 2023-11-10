@@ -299,6 +299,7 @@ main {
   text-align: center;
   margin: auto;
   text-align: left;
+  line-height: 30px;
 }
 #cannabidiol h3 {
   display: inline-block;
@@ -319,26 +320,30 @@ main {
   display: flex;
 }
 #cannabidiol .inner .warp .cannabidiol_oil .oillogo img {
-  width: 30px;
-  margin-right: 20px;
+  width: 35px;
+  margin: 0 10px 30px 20px;
 }
-#cannabidiol .inner .warp .cannabidiol_oil .oillogo span {
-  font-size: 14px;
-  line-height: 14px;
-  margin: 0;
-  padding: 0;
+@media screen and (max-width: 780px) {
+  #cannabidiol .inner .warp .cannabidiol_oil .oillogo img {
+    margin: 0 10px 10px 10px;
+  }
 }
-#cannabidiol .inner .warp .cannabidiol_oil .oillogo h4 {
-  font-size: 30px;
-  margin-top: 0;
-  line-height: 40px;
+#cannabidiol .inner .warp .cannabidiol_oil .oillogo div img {
+  width: auto;
+  height: 63px;
+}
+@media screen and (max-width: 780px) {
+  #cannabidiol .inner .warp .cannabidiol_oil .oillogo div img {
+    height: 40px;
+  }
 }
 #cannabidiol .inner .warp .cannabidiol_oil p {
   padding-top: 10px;
 }
 #cannabidiol .inner .warp .cannabidiol_oil ul {
-  background-color: #f7f7f7;
-  list-style: disc;
+  font-weight: bold;
+  background-color: #e5e5e5;
+  list-style: none;
   padding: 15px;
   margin-top: 20px;
 }
@@ -475,8 +480,15 @@ main {
   line-height: 3rem;
   width: 100%;
   max-width: 650px;
-  border-bottom: 2px dotted black;
+  border-top: 2px dotted black;
   margin: auto;
+  cursor: pointer;
+}
+#qa .warp ul li:first-child {
+  border-top: none;
+}
+#qa .warp ul li:last-child {
+  border-bottom: 2px dotted black;
 }
 #qa .warp ul li::before {
   display: inline-block;
@@ -496,6 +508,14 @@ main {
   transform: translateY(-50%);
   width: 20px;
   height: 20px;
+}
+#qa .warp ul p {
+  width: 650px;
+  margin: auto;
+  margin: 20px auto 40px auto;
+}
+#qa .warp ul p:last-child {
+  border-bottom: 2px dotted black;
 }
 
 #voice {

@@ -65,8 +65,9 @@
                         <div class="oillogo">
                             <img src="画像一次補完/oil1.png" alt="">
                             <div>
-                                <span>カンナビジオール</span>
-                                <h4>CANNABIDIOL</h4>
+                                <img src="画像一次補完/cannabidiollogo.png" alt="">
+                                <!-- <span>カンナビジオール</span>
+                                <h4>CANNABIDIOL</h4> -->
                             </div>
                         </div>
 
@@ -79,16 +80,17 @@
                         近年では海外でも非常に注目されている成分の一つです。
                     </p>
                     <ul>
-                        <li>THC0％ ・提携農場で茎からのみ抽出 ・トレーサビリティを確保</li>
-                        <li>第三者機関での成分分析 ・製品の国内製造厳守 ・厚生労働省に確認済み</li>
+                        <li>・ THC0％ ・提携農場で茎からのみ抽出 ・トレーサビリティを確保</li>
+                        <li>・ 第三者機関での成分分析 ・製品の国内製造厳守 ・厚生労働省に確認済み</li>
                     </ul>
                     </div>
                 <div  class="cannabidiol_oil">
                         <div class="oillogo">
-                            <img src="画像一次補完/oil_2.png" alt="">
+                            <img src="画像一次補完/oil2.png" alt="">
                             <div>
-                                <span>スクワランオイル</span>
-                                <h4>SQUALANE OIL</h4>
+                                <img src="画像一次補完/squalaneoillogo.png" alt="">
+                                <!-- <span>スクワランオイル</span>
+                                <h4>SQUALANE OIL</h4> -->
                             </div>
                         </div>
                     <p>高浸透のオイルが新陳代謝を活性化させ、肌のターンオーバーを促すことでシミやシワを予防し、潤いながらも透明感のある美しい肌に導きます。</p>
@@ -98,8 +100,9 @@
                     <div class="oillogo">
                         <img src="画像一次補完/oil3.png" alt="">
                         <div>
-                            <span>ホホバ油</span>
-                            <h4>JOJOBA OIL</h4>
+                            <img src="画像一次補完/jojobaoillogo.png" alt="">
+                            <!-- <span>ホホバ油</span>
+                            <h4>JOJOBA OIL</h4> -->
                         </div>
                     </div>
 
@@ -109,8 +112,9 @@
                     <div class="oillogo">
                         <img src="画像一次補完/oil4.png" alt="">
                         <div>
-                            <span>オリーブオイル</span>
-                            <h4>OLIVE OIL</h4>
+                            <img src="画像一次補完/oliveoillogo.png" alt="">
+                            <!-- <span>オリーブオイル</span>
+                            <h4>OLIVE OIL</h4> -->
                         </div>
                     </div>
                     <p>高い抗酸化力が特徴で、お肌のシミなどの原因にもなるメラニンの生成を抑える作用があり、お肌にハリを生み出すコラーゲンの生成を促す働きも持っています。</p>
@@ -120,8 +124,9 @@
                     <div class="oillogo">
                         <img src="画像一次補完/oil5.png" alt="">
                         <div>
-                            <span>アルガンオイル</span>
-                            <h4>ARGAN OIL</h4>
+                            <img src="画像一次補完/arganoillogo.png" alt="">
+                            <!-- <span>アルガンオイル</span>
+                            <h4>ARGAN OIL</h4> -->
                         </div>
                     </div>
                     <p>アルガンツリーから抽出される希少な天然オイル。必須脂肪酸、γ-トコフェロールを豊富に含み、乾燥肌・敏感肌・毛髪のケアや、しわ軽減などに効果があります。</p>
@@ -130,8 +135,9 @@
                     <div class="oillogo">
                         <img src="画像一次補完/oil6.png" alt="">
                         <div>
-                            <span>マルラオイル</span>
-                            <h4>MARULA OIL</h4>
+                            <img src="画像一次補完/marulaoillogo.png" alt="">
+                            <!-- <span>マルラオイル</span>
+                            <h4>MARULA OIL</h4> -->
                         </div>
                     </div>
                     <p>マルラツリーから抽出される天然オイル。分子量が小さく肌への浸透もしやすく、抗酸化物質を豊富に含みアンチエイジングにも最適なオイル</p>
@@ -173,10 +179,15 @@
                 <div class="warp">
                     <h3><img src="画像一次補完/qalogo.png" alt=""></h3>
                     <ul>
-                        <li>ニキビ・肌荒れでも使用出来ますか？</li>
+                        <li><input type="button" value="ニキビ・肌荒れでも使用出来ますか？" onclick="question(1)"></li>
+                        <p id ="answer1"  style="display: none;">お肌が荒れている場合、極力ご使用は控えてください。<br>ニキビについては、お肌の状況を見てご使用ください</p>
                         <li>使用期限はありますか？</li>
+                        <p  id ="answer2"  style="display: none;">未開封は約3年、開封後は9か月以内を目安にご使用ください。</p>
                         <li>使用するタイミングや回数はありますか？</li>
+                        <p  id ="answer3"  style="display: none;">タイミングは特にございませんが、就寝前にご使用いただくとリラックス効果がございます。
+                            　使用量は目安ですので、お肌の状態お好みの質感に合わせて使用量を増やしていただけます。</p>
                         <li>妊婦・授乳期の方でも使用できますか？</li>
+                        <p  id ="answer4"  style="display: none;">お肌に害のある成分は配合しておりませんが非常に大事な時期ですので、担当医の先生へのご相談の上ご使用をお願いいたします。</p>
                     </ul>
                 </div>
         </section>
