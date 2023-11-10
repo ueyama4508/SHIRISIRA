@@ -501,49 +501,52 @@ main{
         
             li{
                 position: relative;
-                display: flex;
+                // display: flex;
                 align-items: center;
                 gap: 10px;
                 line-height: 3rem;
                 width: 100%;
                 max-width: 650px;
-                border-top: 2px dotted black;
                 margin: auto;
                 cursor: pointer;
 
-                &:first-child{
-                    border-top: none;
+                &:not(:last-child){
+                    border-bottom: 2px dotted black;
                 }
                 &:last-child{
                     border-bottom: 2px dotted black;
                 }
 
-                &::before{
-                    display: inline-block;
-                    background-image: url(../画像一次補完/qaicon.png);
-                    background-size: 20px 20px;
-                    content: "";
-                    width: 20px;
-                    height: 20px;
-                    // margin-right: 10px;
-                    
-                }
-                &::after{
-                    display: inline-block;
-                    content: "▼";
-                    position: absolute;
-                    top: 25%;
-                    right: 0%;
-                    transform: translateX(-50%);
-                    transform: translateY(-50%);
-                    width: 20px;
-                    height: 20px;
+
+                h5{
+                    &::before{
+                        display: inline-block;
+                        background-image: url(../画像一次補完/qaicon.png);
+                        background-size: 20px 20px;
+                        content: "";
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 10px;
+                        
+                    }
+                    &::after{
+                        display: inline-block;
+                        content: "▼";
+                        position: absolute;
+                        top: 25%;
+                        right: 0%;
+                        transform: translateX(-50%);
+                        transform: translateY(-50%);
+                        width: 20px;
+                        height: 20px;
+                    }
                 }
             }
             p{
                 width: 650px;
                 margin: auto;
                 margin: 20px auto 40px auto;
+
                 // &::before{
                 //     display: inline-block;
                 //     background-image: url(../画像一次補完/qaicon.png);
@@ -554,9 +557,6 @@ main{
                 //     // margin-right: 10px;
                     
                 // }
-                &:last-child{
-                    border-bottom: 2px dotted black;
-                }
             }
         }
     }
@@ -564,7 +564,9 @@ main{
 
 #voice{
     @include  section_format;
+    background-color: white;
     .warp{
+        margin-bottom: 40px;
         h3{
             @include media(tab){
                 margin-bottom: 10px;
@@ -573,7 +575,6 @@ main{
             }
             width: 230px;
             height: auto;
-            background-color: #f5f5f5;
             margin-bottom: 70px;
         }
         .uservoice{
@@ -584,6 +585,7 @@ main{
             padding: 20px;
             margin: 40px auto;
             border-radius: 15px;
+
             img{
                 width: 60px;
                 height: 60px;
@@ -611,6 +613,7 @@ main{
     background-color: #f7f7f7;
     .warp{
         h3{
+            margin-top: 20px;
             @include media(tab){
                 width: 300px;
                 margin-top: 0;

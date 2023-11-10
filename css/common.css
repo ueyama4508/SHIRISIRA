@@ -474,31 +474,30 @@ main {
 }
 #qa .warp ul li {
   position: relative;
-  display: flex;
   align-items: center;
   gap: 10px;
   line-height: 3rem;
   width: 100%;
   max-width: 650px;
-  border-top: 2px dotted black;
   margin: auto;
   cursor: pointer;
 }
-#qa .warp ul li:first-child {
-  border-top: none;
+#qa .warp ul li:not(:last-child) {
+  border-bottom: 2px dotted black;
 }
 #qa .warp ul li:last-child {
   border-bottom: 2px dotted black;
 }
-#qa .warp ul li::before {
+#qa .warp ul li h5::before {
   display: inline-block;
   background-image: url(../画像一次補完/qaicon.png);
   background-size: 20px 20px;
   content: "";
   width: 20px;
   height: 20px;
+  margin-right: 10px;
 }
-#qa .warp ul li::after {
+#qa .warp ul li h5::after {
   display: inline-block;
   content: "▼";
   position: absolute;
@@ -514,15 +513,13 @@ main {
   margin: auto;
   margin: 20px auto 40px auto;
 }
-#qa .warp ul p:last-child {
-  border-bottom: 2px dotted black;
-}
 
 #voice {
   width: 100%;
   max-width: 1000px;
   text-align: center;
   margin: auto;
+  background-color: white;
 }
 #voice h3 {
   display: inline-block;
@@ -533,10 +530,12 @@ main {
   margin-top: 50px;
   font-size: 23px;
 }
+#voice .warp {
+  margin-bottom: 40px;
+}
 #voice .warp h3 {
   width: 230px;
   height: auto;
-  background-color: #f5f5f5;
   margin-bottom: 70px;
 }
 @media screen and (max-width: 780px) {
@@ -590,6 +589,7 @@ main {
   font-size: 23px;
 }
 #product .warp h3 {
+  margin-top: 20px;
   width: 350px;
   height: auto;
 }
