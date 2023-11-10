@@ -77,7 +77,7 @@ $breakpoints: (
 // }
 
 html{
-    background-color: #f5f5f5;
+    background-image:  url(../画像一次補完/背景.jpg);
     font-size: 16px;
     scroll-behavior: smooth;
     @include media(sp){
@@ -102,9 +102,6 @@ html{
         }
     }
 
-    // body{
-    //     width: 100%;
-    // }
 
 header{
     z-index: 999;
@@ -286,6 +283,7 @@ main{
 #concept{
     @include section_format;
     .warp{
+        margin: auto;
         @include media(tab){
             width: 90%
         }
@@ -323,7 +321,7 @@ main{
     .warp{
         h3{
             @include media(tab){
-                width: 360px;
+                width: 340px;
             }
 
             img{
@@ -409,11 +407,11 @@ main{
     width: 100%;
     max-width: 1300px;
     margin-top: 100px;
+    margin-bottom: 50px;
     @include media(tab){
         width: calc(100% - 20px);
         margin: 70px auto 50px auto;
     }
-
 
     .warp{
         @include media(tab){
@@ -429,11 +427,12 @@ main{
         h3{
             @include media(tab){
                 width: 320px;
-                margin-top: 0px;
+                margin-top: 50px;
             }
+            font-size: unset;
             width: 440px;
             height: auto;
-            background-color: #e3e3e3;;
+            background-color: #e3e3e3;
         }
         h4{
             @include media(tab){
@@ -485,36 +484,46 @@ main{
 #qa{
     @include  section_format;
     .warp{
-        @include media(tab){}
+
         width: 90%;
         margin: auto;
         h3{
-            width: 170px;
+            @include media(tab){
+                margin-top: 10px;
+            }
+            width: 140px;
             height: auto;
-            background-color:#f5f5f5;
+            // background-color:#f5f5f5;
         }
         ul{
             list-style-position: inside;
             margin: auto;
             margin-top: 50px;
             text-align: left;
+            margin-bottom: 180px;
         
             li{
                 position: relative;
                 // display: flex;
                 align-items: center;
                 gap: 10px;
-                line-height: 3rem;
+                line-height: 4rem;
                 width: 100%;
                 max-width: 650px;
                 margin: auto;
                 cursor: pointer;
 
                 &:not(:last-child){
-                    border-bottom: 2px dotted black;
+                    background-image : linear-gradient(to right, #000 2px, transparent 1px);
+                    background-size: 6px 2px;
+                    background-repeat: repeat-x;
+                    background-position: left bottom;
                 }
                 &:last-child{
-                    border-bottom: 2px dotted black;
+                    background-image : linear-gradient(to right, #000 2px, transparent 1px);
+                    background-size: 6px 2px;
+                    background-repeat: repeat-x;
+                    background-position: left bottom;
                 }
 
 
@@ -564,13 +573,17 @@ main{
 
 #voice{
     @include  section_format;
+    max-width: 100%;
     background-color: white;
     .warp{
+        border: 1px solid white;
         margin-bottom: 40px;
         h3{
+
+            margin-top: 30px;
             @include media(tab){
                 margin-bottom: 10px;
-                margin-top: 0;
+                margin-top: 20px;
                 width: 180px;
             }
             width: 230px;
@@ -578,13 +591,22 @@ main{
             margin-bottom: 70px;
         }
         .uservoice{
+            @include media(tab){
+                margin: 30px 20px;
+            }
             text-align: left;
             display: flex;
-            background-color: #f7f7f7;
+            background-image: url(../画像一次補完/背景.jpg);
             max-width: 760px;
             padding: 20px;
             margin: 40px auto;
             border-radius: 15px;
+            &:last-child{
+                margin-bottom: 150px;
+                @include media(tab){
+                    margin-bottom: 45px;
+                }
+            }
 
             img{
                 width: 60px;
@@ -599,7 +621,6 @@ main{
                 @include media(tab){
                     line-height: 30px;
                 }
-
                 margin-top: 10px
             }
         }
@@ -610,36 +631,31 @@ main{
 #product{
     @include  section_format;
     width: 100%;
-    background-color: #f7f7f7;
+    margin-bottom: 100px;
     .warp{
+        margin: auto;
         h3{
             margin-top: 20px;
             @include media(tab){
                 width: 300px;
                 margin-top: 0;
             }
-
             width: 350px;
             height: auto;
             // background-color: #f7f7f7;
         }
-
-
     .inner{
         @include media(tab){
-            // display: block;
-            // background-color: aqua;
-
+            margin: 10px;
         }
         text-align: left;
-        width: 100%;
-        max-width: 1000px;
+        // width: 100%;
+        // max-width: 1000px;
         margin: auto;
         background-color: white;
         display: flex;
         justify-content: space-around;
         margin-top: 100px;
-
 
     img{
         @include media(tab){
@@ -656,29 +672,44 @@ main{
         object-fit: cover;
         margin: 50px 65px;
     }
+    .pc { display: block !important; 
+        @include media(tab){
+            display: none !important;
+        }
+        }
+    }
+    .sp { display: none !important;
+        @include media(tab){
+        display: block !important;
+        }
+    }
+    // .topimg{
+    //     @include media(tab){
+    //     object-fit: cover;
+    // }
+
     .explanation{
+        @include media(tab){
+            margin-right: 10px;
+
+        }
+        margin-right: 50px;
         h4{
             @include media(tab){
                 margin-top: 0;
-
-    
             }
         }
         p{
             @include media(tab){
                 font-size: 12px;
-
-    
+                margin-top: 5px;
             }
             margin-top: 20px;
         }
         .component{
             @include media(tab){
-
                 display: flex;
                 flex-wrap: wrap;
-
-    
             }
             font-size: 9px;
             span{
@@ -688,10 +719,13 @@ main{
                 padding: 1px;
             }
         }
+        .madein{
+            margin-bottom: 40px
+        }
     }
     }
 }
-}
+
 
 #blog{
     @include  section_format;
